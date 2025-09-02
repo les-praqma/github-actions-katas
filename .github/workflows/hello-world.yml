@@ -1,4 +1,4 @@
-name: Main workflow
+name: Hello World workflow
 on: push
 jobs:
   Build:
