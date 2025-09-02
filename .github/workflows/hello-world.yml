@@ -16,6 +16,10 @@ jobs:
         with: 
           name: code
           path: .
+      - name: build docker
+        run: bash ci/build-docker.sh
+      - name: push docker
+        run: bash ci/push-docker.sh
   Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
