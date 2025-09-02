@@ -1,6 +1,14 @@
 name: Hello World workflow
 on: push
+env: # Set the secret as an input
+  docker_username: ${{ github.actor }} 
+  docker_password: ${{ secrets.GITHUB_TOKEN }} # Must be made available to the workflow
 jobs:
+  Docker-image:
+    runs-on: ubuntu-latest
+    needs: [Build]
+    permissions:
+      packages: write
   Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
